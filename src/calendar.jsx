@@ -1,4 +1,5 @@
 import React from 'react';
+import './calendar.css'
 
 function getTableForMonth(year, month) {
   let firstDayInMonth = new Date(year, month, 1)
@@ -73,10 +74,13 @@ let CalendarRow = React.createClass({
   render: function() {
     let begin = this.props.begin, end = this.props.end;
     let cells = this.props.row.map(function(cell, j) {
-      return (<td
-                key={cell.toISOString().slice(0, 10)}
-                className={cell < begin || cell > end ? 'inactive calendar-cell' : 'calendar-cell' }>
-                {cell.getDate()}
+      let year = cell.getFullYear(), month = cell.getMonth() + 1,
+        fullDate = cell.toISOString().slice(0, 10);
+      return (<td key={cell.toISOString().slice(0, 10)}
+                  className={cell < begin || cell > end ? 'inactive calendar-cell' : 'calendar-cell' }>
+                <a href={year + '/' + month + '/' + fullDate + '.html'}
+                   className="calendar-cell-link">{cell.getDate()}
+                </a>
               </td>)
     });
 

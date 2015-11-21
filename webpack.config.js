@@ -2,6 +2,7 @@ module.exports = {
   entry: {
     bundle:  __dirname + '/src/index.jsx'
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {

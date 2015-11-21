@@ -5,7 +5,7 @@
   "main": "index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --progress --colors --watch"
+    "dev": "webpack -d --progress --colors --watch"
   },
   "author": "Joyee Cheung <joyeec9h3@gmail.com>",
   "license": "MIT",

@@ -1,0 +1,81 @@
+.calendar {
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ max-width: 600px;
+ margin: 0 auto;
+ box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+ border-radius: 2px;
+}
+
+.calendar-cell {
+  padding: 10px;
+}
+
+.calendar-cell-link {
+  color: black;
+  text-decoration: none;
+}
+
+.calendar-cell.inactive .calendar-cell-link {
+  color: #bbb;
+}
+
+.calendar-table {
+  text-align: center;
+}
+.calendar-table,
+.calendar-header {
+  width: 100%;
+}
+
+.calendar-header {
+  text-align: center;
+  overflow: hidden;
+  background-color: teal;
+}
+
+.calendar-header-control-list {
+  list-style-type: none;
+  padding: 90px 0 10px 20px;
+  margin: 0;
+  float: left;
+}
+
+.calendar-header-control-list .prev,
+.calendar-header-control-list .next {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid white;
+  font-size: 16px;
+}
+
+.calendar-header-control {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.calendar-header-title {
+  color: white;
+  float: right;
+  margin: 0;
+  padding: 40px 20px 10px 0;
+  font-weight: normal;
+  text-align: right;
+}
+
+.calendar-header .month-name {
+  display: block;
+  font-size: 22px;
+}
+
+.calendar-header .year-name {
+  font-size: 46px;
+  font-weight: normal;
+  display: block;
+}
