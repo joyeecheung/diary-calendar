@@ -1,3 +1,5 @@
+import React from 'react';
+
 function getTableForMonth(year, month) {
   let firstDayInMonth = new Date(year, month, 1)
   let lastDayInMonth = new Date(year, month + 1, 0);
@@ -67,7 +69,7 @@ function getTableForMonth(year, month) {
   return table;
 }
 
-var CalendarRow = React.createClass({
+let CalendarRow = React.createClass({
   render: function() {
     let begin = this.props.begin, end = this.props.end;
     let cells = this.props.row.map(function(cell, j) {
@@ -82,7 +84,7 @@ var CalendarRow = React.createClass({
   }
 })
 
-var CalendarTable = React.createClass({
+let CalendarTable = React.createClass({
   render: function() {
     let year = this.props.current.getFullYear(), month = this.props.current.getMonth();
     let firstDayInMonth = new Date(year, month, 1)
@@ -109,7 +111,7 @@ var CalendarTable = React.createClass({
   }
 });
 
-var CalendarHeader = React.createClass({
+let CalendarHeader = React.createClass({
   render: function() {
     let year = this.props.current.getFullYear(), month = this.props.current.getMonth();
     let monthName = ['January', 'February', 'March', 'April', 'May',
@@ -139,7 +141,7 @@ var CalendarHeader = React.createClass({
   }
 });
 
-var Calendar = React.createClass({
+let Calendar = React.createClass({
   getInitialState: function() {
     return {
       current: new Date(this.props.lastDate.getFullYear(), this.props.lastDate.getMonth(), 1)
@@ -179,10 +181,5 @@ var Calendar = React.createClass({
   }
 });
 
-var calendar = document.getElementById('calendar')
+export default Calendar;
 
-ReactDOM.render(
-  <Calendar firstDate={new Date(calendar.getAttribute('data-first-date'))}
-    lastDate={new Date(calendar.getAttribute('data-last-date'))}/>,
-    calendar
-);
