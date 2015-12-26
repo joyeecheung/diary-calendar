@@ -2,14 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Document</title>
+  <title>My Tech Diary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      background-color: #fafafa;
+      padding: 0;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #212121;
+      font-family: sans-serif;
+    }
+
+    .calendar {
+      margin: 90px auto;
+    }
+  </style>
 </head>
 <body>
-  <div id="calendar" class="calendar" data-last-date="2010-02-18" data-first-date="2005-04-23">
+
+  <div id="calendar" class="calendar" data-first-date="2015-04-23" data-last-date="2015-12-23" data-title="My Tech Diary">
     <div id="react-calendar"></div>
   </div>
 
-  <script src="dist/bundle.js"></script>
+  <script src="bundle.js"></script>
 </body>
 </html>

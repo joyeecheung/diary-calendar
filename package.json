@@ -5,21 +5,26 @@
   "main": "index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack -d --progress --colors --watch"
+    "dev": "webpack -d --progress --colors --watch",
+    "serve": "webpack-dev-server --watch --progress --colors --port 8090"
   },
   "author": "Joyee Cheung <joyeec9h3@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },
   "devDependencies": {
+    "autoprefixer": "^6.2.1",
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.4",
+    "postcss-loader": "^0.8.0",
+    "precss": "^1.3.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.8",
     "webpack-dev-server": "^1.12.1"

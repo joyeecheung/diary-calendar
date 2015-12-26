@@ -14,12 +14,15 @@ module.exports = {
         }
       }, {
         test: /\.css$/,
-        loader: "style!css"
+        loader: "style!css!postcss?sourceMap"
       }, {
         test: /\.html$/,
         loader: "file?name=[name].[ext]",
       },
     ]
+  },
+  postcss: function () {
+      return [require('autoprefixer'), require('precss')];
   },
   output: {
     path: __dirname + '/dist',
