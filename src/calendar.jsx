@@ -1,6 +1,7 @@
 import React from 'react';
 import './calendar.css';
 import classNames from 'classnames';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 let MONTH_NAMES = ['January', 'February', 'March', 'April', 'May',
      'June', 'July', 'August', 'September', 'October',
@@ -136,12 +137,19 @@ let CalendarTable = React.createClass({
     );
 
     return (
-      <table className="calendar-table calendar-table-current">
-        <thead className="calendar-table-head">
-          <tr className="calendar-row">{names}</tr>
-        </thead>
-        <tbody className="calendar-table-body">{rows}</tbody>
-      </table>);
+      <div className="calendar-table-wrapper">
+        <ReactCSSTransitionGroup transitionName="fade-slide-right"
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={200}>
+          <table className="calendar-table calendar-table-current"
+                 key={'table-' + this.props.current.toISOString().slice(0, 7)}>
+            <thead className="calendar-table-head">
+              <tr className="calendar-row">{names}</tr>
+            </thead>
+            <tbody className="calendar-table-body">{rows}</tbody>
+          </table>
+        </ReactCSSTransitionGroup>
+      </div>);
   }
 });
 
@@ -172,7 +180,6 @@ let CalendarControl = React.createClass({
     let monthName = MONTH_NAMES[month];
 
     let prev = new Date(this.props.current);
-    console.log(prev, this.props.firstDate)
     // assert: prev.getDate() === 1;
     let prevClasses = classNames({
       'calendar-control': true,
@@ -194,7 +201,14 @@ let CalendarControl = React.createClass({
     return (
       <ul className="calendar-control-list">
         <li className={prevClasses} onClick={this.props.goToPrevMonth}></li>
-        <li className="calendar-control-title">{monthName} {year}</li>
+        <li className="calendar-control-title">
+          <ReactCSSTransitionGroup transitionName="fade-slide-down"
+            transitionEnterTimeout={200}
+            transitionLeaveTimeout={200}>
+            <div key={'title-' + this.props.current.toISOString().slice(0, 7)}>
+              {monthName} {year}
+            </div>
+          </ReactCSSTransitionGroup></li>
         <li className={nextClasses} onClick={this.props.goToNextMonth}></li>
       </ul>)
   }
@@ -210,7 +224,7 @@ let Calendar = React.createClass({
     return (
       <div className="calendar-wrapper">
         <CalendarHeader today={this.props.today} cTitle={this.props.cTitle}/>
-         <div className="calendar-table-wrapper">
+         <div className="calendar-body">
           <CalendarControl current={this.state.current}
             goToPrevMonth={this.goToPrevMonth}
             goToNextMonth={this.goToNextMonth}
