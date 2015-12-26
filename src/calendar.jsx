@@ -156,8 +156,8 @@ let CalendarHeader = React.createClass({
       <nav className="calendar-header">
         <div className="calendar-header-date">
           <div className="year">{year}</div>
-          <div className="day">{day},</div>
-          <div className="date">{monthName} {date}</div>
+          <div className="day">{day}, </div>
+          <div className="date"> {monthName} {date}</div>
         </div>
         <h1 className="calendar-header-title">
           {this.props.cTitle}

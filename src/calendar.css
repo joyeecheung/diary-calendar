@@ -1,8 +1,8 @@
 .calendar {
-  font-size: 14px;
+  font-size: 12px;
   color: #212121;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  max-width: 400px;
+  max-width: 310px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -21,16 +21,16 @@
 }
 
 .calendar-cell {
-  padding: 2px 6px;
+  padding: 2px;
 }
 
 .calendar-cell-link {
   color: #e0e0e0;
   text-decoration: none;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   display: inline-block;
-  line-height: 36px;
+  line-height: 32px;
   border-radius: 50%;
   transition: all 0.1s ease-in-out;
 }
@@ -53,8 +53,8 @@
 }
 
 .calendar-table-wrapper {
-  padding: 20px;
-  min-height: 310px;
+  padding: 20px 12px;
+  min-height: 290px;
 }
 
 .calendar-table {
@@ -78,9 +78,8 @@
 }
 
 .calendar-control-title {
-  line-height: 20px;
-  vertical-align: middle;
-  font-size: 16px;
+  line-height: 16px;
+  font-size: 14px;
 }
 
 .calendar-control.disabled {
@@ -109,12 +108,12 @@
 .calendar-control.prev:before,
 .calendar-control.next:before {
   border-style: solid;
-  border-width: 3px 3px 0 0;
+  border-width: 2px 2px 0 0;
   border-color: #757575;
   display: inline-block;
   content: " ";
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 .calendar-control.prev:hover:before,
@@ -140,7 +139,7 @@
 }
 
 .calendar-header-title {
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   font-weight: normal;
   text-align: left;
@@ -151,32 +150,36 @@
 .calendar-header .day,
 .calendar-header .date {
   display: inline-block;
-  font-size: 38px;
-  line-height: 48px;
+  font-size: 34px;
+  line-height: 42px;
+  margin-right: 8px;
 }
 
 .calendar-header .year {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   display: block;
   color: #b2dfdb;
 }
 
-
-.calendar-header .title {
-  font-size: 40px;
-}
-
-
 @media (min-width: 600px) {
   .calendar {
     max-width: 600px;
     height: 350px;
+    font-size: 14px;
+  }
+
+  .calendar-cell {
+    padding: 2px 6px;
   }
 
   .calendar-wrapper {
     overflow: hidden;
     height: 100%;
+  }
+
+  .calendar-table-wrapper {
+    padding: 20px;
   }
 
   .calendar-header,
@@ -204,5 +207,37 @@
   .calendar-header-title {
     bottom: 0;
     position: absolute;
+  }
+
+  .calendar-cell-link {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+  }
+
+  .calendar-control-title {
+    line-height: 20px;
+    font-size: 16px;
+  }
+
+  .calendar-control.prev:before,
+  .calendar-control.next:before {
+    border-width: 3px 3px 0 0;
+    width: 7px;
+    height: 7px;
+  }
+
+  .calendar-header .day,
+  .calendar-header .date {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .calendar-header .year {
+    font-size: 18px;
+  }
+
+  .calendar-header-title {
+    font-size: 20px;
   }
 }
