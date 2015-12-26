@@ -22,17 +22,20 @@
 
 .calendar-cell {
   padding: 2px;
+  width: 32px;
+  height: 32px;
 }
 
 .calendar-cell-link {
   color: #e0e0e0;
   text-decoration: none;
-  width: 32px;
-  height: 32px;
+  width: 14px;
+  height: 14px;
   display: inline-block;
-  line-height: 32px;
+  line-height: 14px;
   border-radius: 50%;
   transition: all 0.1s ease-in-out;
+  background-color: white;
 }
 
 .calendar-cell.invalid .calendar-cell-link {
@@ -44,6 +47,9 @@
 }
 
 .calendar-cell.active .calendar-cell-link:hover {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
   background-color: #009688;
   color: white;
 }
@@ -216,11 +222,25 @@
     position: absolute;
   }
 
-  .calendar-cell-link {
+  .calendar-cell {
     width: 36px;
     height: 36px;
-    line-height: 36px;
   }
+
+  .calendar-cell-link {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+  }
+
+  .calendar-cell.active .calendar-cell-link:hover {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #009688;
+    color: white;
+  }
+
 
   .calendar-control-title {
     line-height: 20px;
