@@ -200,7 +200,6 @@ let CalendarControl = React.createClass({
 
     return (
       <ul className="calendar-control-list">
-        <li className={prevClasses} onClick={this.props.goToPrevMonth}></li>
         <li className="calendar-control-title">
           <ReactCSSTransitionGroup transitionName="fade-slide-down"
             transitionEnterTimeout={200}
@@ -209,6 +208,7 @@ let CalendarControl = React.createClass({
               {monthName} {year}
             </div>
           </ReactCSSTransitionGroup></li>
+        <li className={prevClasses} onClick={this.props.goToPrevMonth}></li>
         <li className={nextClasses} onClick={this.props.goToNextMonth}></li>
       </ul>)
   }

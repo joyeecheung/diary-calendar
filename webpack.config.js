@@ -1,6 +1,10 @@
+'use strict';
+
+let path = require('path');
+
 module.exports = {
   entry: {
-    bundle:  __dirname + '/src/index.jsx'
+    bundle:  path.resolve(__dirname + '/src/index.jsx')
   },
   devtool: 'source-map',
   module: {
@@ -14,7 +18,7 @@ module.exports = {
         }
       }, {
         test: /\.css$/,
-        loader: "style!css!postcss?sourceMap"
+        loader: "style!css?sourceMap!postcss"
       }, {
         test: /\.html$/,
         loader: "file?name=[name].[ext]",
@@ -25,9 +29,9 @@ module.exports = {
       return [require('autoprefixer'), require('precss')];
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(__dirname + '/dist'),
     filename: '[name].js'
-  },
+  }
 }
 
 

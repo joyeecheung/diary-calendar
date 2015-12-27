@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -d --progress --colors --watch",
-    "serve": "webpack-dev-server --watch --progress --colors --port 8090"
+    "deploy": "set NODE_ENV=production && webpack -p --config webpack.production.config.js",
+    "serve": "set NODE_ENV=development && webpack-dev-server --watch --progress --colors --port 8090"
   },
   "author": "Joyee Cheung <joyeec9h3@gmail.com>",
   "license": "MIT",

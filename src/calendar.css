@@ -60,12 +60,13 @@
 
 .calendar-body {
   padding: 20px 12px;
-  min-height: 290px;
+  min-height: 300px;
 }
 
 .calendar-table-wrapper {
   position: relative;
   overflow: hidden;
+  height: 270px;
 }
 
 .calendar-table {
@@ -92,7 +93,10 @@
 .calendar-control-title {
   line-height: 16px;
   font-size: 14px;
-  margin: 0 50px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .calendar-control.disabled {
@@ -124,6 +128,7 @@
   border-width: 2px 2px 0 0;
   border-color: #757575;
   display: inline-block;
+  transition: all 0.1s ease-in-out;
   content: " ";
   width: 6px;
   height: 6px;
@@ -131,8 +136,7 @@
 
 .calendar-control.prev:hover:before,
 .calendar-control.next:hover:before {
-  border-color: #bdbdbd;
-  transition: all 0.1s ease-in-out;
+  border-color: #009688;
 }
 
 .calendar-control.prev:before {
@@ -178,7 +182,7 @@
 @media (min-width: 600px) {
   .calendar {
     max-width: 600px;
-    height: 350px;
+    height: 380px;
     font-size: 14px;
   }
 
@@ -189,6 +193,10 @@
   .calendar-wrapper {
     overflow: hidden;
     height: 100%;
+  }
+
+  .calendar-table-wrapper {
+    height: 300px;
   }
 
   .calendar-body {
@@ -273,7 +281,7 @@
 .fade-slide-down-enter,
 .fade-slide-right-enter {
   opacity: 0;
-  transition: all 0.2s ease-out;
+  transition: all 0.1s ease-out;
 }
 
 .fade-slide-right-enter {
@@ -298,7 +306,7 @@
 .fade-slide-down-leave,
 .fade-slide-right-leave {
   opacity: 1;
-  transition: all 0.2s ease-out;
+  transition: all 0.1s ease-out;
   transform: translate(0, 0px);
 }
 
@@ -307,7 +315,6 @@
   top: 0;
   width: 100%;
   left: 0;
-  margin: 0;
 }
 
 .fade-slide-down-leave.fade-slide-down-leave-active,
