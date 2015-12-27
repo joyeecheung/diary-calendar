@@ -87,8 +87,8 @@ function sameDate(a, b) {
         a.getFullYear() === b.getFullYear());
 }
 
-let CalendarRow = React.createClass({
-  render: function() {
+class CalendarRow extends React.Component {
+  render() {
     let begin = this.props.begin, end = this.props.end;
     let cells = this.props.row.map((cell, j) => {
       let year = cell.getFullYear(), month = cell.getMonth() + 1,
@@ -113,10 +113,10 @@ let CalendarRow = React.createClass({
 
     return (<tr className="calendar-row">{cells}</tr>)
   }
-})
+}
 
-let CalendarTable = React.createClass({
-  render: function() {
+class CalendarTable extends React.Component {
+  render() {
     let year = this.props.current.getFullYear(), month = this.props.current.getMonth();
     let firstDayInMonth = new Date(year, month, 1)
     let lastDayInMonth = new Date(year, month + 1, 0);
@@ -151,10 +151,10 @@ let CalendarTable = React.createClass({
         </ReactCSSTransitionGroup>
       </div>);
   }
-});
+}
 
-let CalendarHeader = React.createClass({
-  render: function() {
+class CalendarHeader extends React.Component {
+  render() {
     let year = this.props.today.getFullYear(), month = this.props.today.getMonth();
     let monthName = MONTH_NAMES[month].slice(0, 3);
     let day = DAY_NAMES[this.props.today.getDay()];
@@ -172,10 +172,10 @@ let CalendarHeader = React.createClass({
         </h1>
       </nav>)
   }
-});
+}
 
-let CalendarControl = React.createClass({
-  render: function() {
+class CalendarControl extends React.Component {
+  render() {
     let year = this.props.current.getFullYear(), month = this.props.current.getMonth();
     let monthName = MONTH_NAMES[month];
 
@@ -212,22 +212,23 @@ let CalendarControl = React.createClass({
         <li className={nextClasses} onClick={this.props.goToNextMonth}></li>
       </ul>)
   }
-})
+}
 
-let Calendar = React.createClass({
-  getInitialState: function() {
-    return {
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       current: new Date(this.props.lastDate.getFullYear(), this.props.lastDate.getMonth(), 1)
     }
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div className="calendar-wrapper">
         <CalendarHeader today={this.props.today} cTitle={this.props.cTitle}/>
          <div className="calendar-body">
           <CalendarControl current={this.state.current}
-            goToPrevMonth={this.goToPrevMonth}
-            goToNextMonth={this.goToNextMonth}
+            goToPrevMonth={this.goToPrevMonth.bind(this)}
+            goToNextMonth={this.goToNextMonth.bind(this)}
             lastDate={this.props.lastDate}
             firstDate={this.props.firstDate}/>
           <CalendarTable current={this.state.current}
@@ -236,8 +237,8 @@ let Calendar = React.createClass({
             firstDate={this.props.firstDate}/>
          </div>
       </div>);
-  },
-  goToPrevMonth: function(e) {
+  }
+  goToPrevMonth(e) {
     e.preventDefault();
     let prevMonth = new Date(this.state.current);
     // assert: prevMonth.getDate() === 1
@@ -249,8 +250,8 @@ let Calendar = React.createClass({
         current: prevMonth
       });
     }
-  },
-  goToNextMonth: function(e) {
+  }
+  goToNextMonth(e) {
     e.preventDefault();
     let nextMonth = new Date(this.state.current);
     // assert: nextMonth.getDate() === 1
@@ -262,7 +263,7 @@ let Calendar = React.createClass({
       });
     }
   }
-});
+}
 
 export default Calendar;
 
