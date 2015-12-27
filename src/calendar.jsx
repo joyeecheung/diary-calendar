@@ -242,7 +242,6 @@ class Calendar extends React.Component {
     e.preventDefault();
     let prevMonth = new Date(this.state.current);
     // assert: prevMonth.getDate() === 1
-    // prevMonth.setDate(0);  // last day of prev month
 
     if (this.props.firstDate < prevMonth) {
       prevMonth.setMonth(prevMonth.getMonth() - 1);
